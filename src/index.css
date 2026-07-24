@@ -1,0 +1,151 @@
+/* ===================================================================
+   NXTFLIX — Design Tokens
+   Direction: late-night cinema marquee. Near-black ink background,
+   marquee-gold accent, condensed display face for headlines, a
+   film-strip perforation rule as the page's one signature device.
+=================================================================== */
+
+:root {
+  /* color */
+  --ink: #0a0b0f;
+  --surface: #14161d;
+  --surface-raised: #1c1f29;
+  --line: #262a35;
+  --text: #f2f3f5;
+  --text-muted: #8b8f9c;
+  --gold: #e8b84b;
+  --gold-dim: #b98f35;
+  --crimson: #b23b30;
+  --crimson-dim: #8a2e25;
+
+  /* type */
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* layout */
+  --radius: 6px;
+  --container: 1240px;
+  --header-h: 68px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 18px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Signature device: film-strip sprocket rule.
+   A row of small perforation dots, used as a quiet divider under
+   the header and between major sections — the one recurring motif
+   that ties the whole app back to "reels of film".
+--------------------------------------------------------------- */
+.sprocket-rule {
+  height: 10px;
+  width: 100%;
+  background-image: radial-gradient(
+    circle,
+    var(--line) 2px,
+    transparent 2.5px
+  );
+  background-size: 22px 10px;
+  background-repeat: repeat-x;
+  background-position: left center;
+  opacity: 0.9;
+}
+
+/* shared empty-state block */
+.empty-state {
+  text-align: center;
+  padding: 96px 24px;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  font-size: 28px;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.empty-state a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.empty-state a:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

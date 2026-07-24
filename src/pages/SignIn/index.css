@@ -1,0 +1,127 @@
+.signin {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.signin__brand {
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(232, 184, 75, 0.12),
+      transparent 55%
+    ),
+    var(--surface);
+  border-right: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.signin__brand-inner {
+  max-width: 380px;
+}
+
+.signin__logo {
+  font-family: var(--font-display);
+  font-size: 56px;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  display: block;
+}
+
+.signin__tagline {
+  margin: 18px 0 28px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.signin__form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.signin__form {
+  width: 100%;
+  max-width: 360px;
+}
+
+.signin__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.03em;
+  margin: 0 0 24px;
+}
+
+.signin__error {
+  background: rgba(178, 59, 48, 0.12);
+  border: 1px solid var(--crimson);
+  color: #ff9a8c;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
+.signin__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+}
+
+.signin__input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  margin-bottom: 18px;
+  transition: border-color 0.15s ease;
+}
+
+.signin__input:focus {
+  border-color: var(--gold);
+}
+
+.signin__submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 6px;
+  transition: opacity 0.15s ease;
+}
+
+.signin__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.signin__submit:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 780px) {
+  .signin {
+    grid-template-columns: 1fr;
+  }
+  .signin__brand {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 36px 24px;
+  }
+  .signin__logo {
+    font-size: 42px;
+  }
+}
